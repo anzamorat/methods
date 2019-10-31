@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[1]:
 
+
+import numpy as np
 
 import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 
-import numpy as np
 import astropy.constants as c
 import astropy.units as u
 
@@ -17,19 +18,7 @@ warnings.filterwarnings('ignore')
 import mpmath as math
 
 
-# In[10]:
-
-
-dir(c)
-
-
-# In[11]:
-
-
-dir(u)
-
-
-# In[12]:
+# In[2]:
 
 
 print(c.k_B)
@@ -42,7 +31,7 @@ print(c.hbar)
 #  
 # 5.67 x 10 -8 watt per meter squared per kelvin to the fourth (W. m^2. K^4 )
 
-# In[55]:
+# In[7]:
 
 
 #total energy per unit area radiated by a black body
@@ -56,14 +45,14 @@ def f(x):
 
 a = 0.000001
 b = np.pi/2
-N = 1000
+N = 10**3
 d = ((b-a)/N)
 s = 0.5*f(a) + 0.5*f(b)
 fsum = 0
 k = 1
 
 
-# In[56]:
+# In[8]:
 
 
 #adding all the values
@@ -71,7 +60,7 @@ for k in range(1,N):
         s += f(a+k*d)
 
 
-# In[69]:
+# In[9]:
 
 
 T = d*(0.5*f(a)+0.5*f(b)+s) #trapezoidal rule to compute integral
