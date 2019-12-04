@@ -10,7 +10,6 @@ import astropy.constants as c
 import astropy.units as u
 
 import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # In[50]:
@@ -108,11 +107,4 @@ ax.set_ylim([0,1])
 ax.set_xlim([0,1])
 plt.show()
 
-
-# In[15]:
-
-
-#draw electric field
-#draw potential
-#side-by-side plots
-
+# %%
