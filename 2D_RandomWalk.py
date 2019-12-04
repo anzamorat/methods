@@ -1,6 +1,6 @@
 "2-Dimensional Random Walk"
 
-#Necessary packages
+#Necessary packages/modules
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -37,6 +37,7 @@ for i in range(1,N):
 
 "ANIMATION TIME !!!"
 
+#Create figure
 fig = plt.figure(figsize=(6,5))
 fig.suptitle('2D-Brownian Motion', fontsize=15, fontweight='bold')
 ax = plt.axes(xlim=(-50,50), ylim=(-50,50)) #Axes with limits
@@ -58,7 +59,12 @@ def animate(i):
     Particle.center = (x_position, y_position)
     return Particle,
 
+#Lets put it all together & animate this whole thing!
 ani = animation.FuncAnimation(fig, animate,
 init_func=init,frames=360,interval=20,blit=True)
 
+#Shows figure (sometimes)
+fig.show()
+
+#Saves creation
 ani.save('final_brownian.mp4')
