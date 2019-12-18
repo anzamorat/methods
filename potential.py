@@ -8,20 +8,20 @@ import matplotlib.pyplot as plt
 "Potential and Electric Charge"
 
 #Defining variables
-E0 = c.eps0.value #Epsilon
-r = 0.01 #Radius
-q1 = 1 #Positive Charge
-q2 = -1 #Negative Charge
+E0 = c.eps0.value   #Epsilon
+r = 0.01            #Radius
+q1 = 1              #Positive Charge
+q2 = -1             #Negative Charge
 
 #Function of potential depending on charge and radius
 def potential(q,r):
     phi=(1/(4*np.pi*e0)*q/r)
     return phi
 
-N = 100 #Grid number
-pot = np.zeros([N,N]) #Array of potential filled with zeros 
+N = 100                     #Grid number
+pot = np.zeros([N,N])       #Array of potential filled with zeros 
 x = np.linspace(0,1, num=N) #Range along the x
-y = x #Range of y is same as x
+y = x                       #Range of y is same as x
 
 #Initial points
 xp = [0.45,0.55] #Initial x_point, Final x_point
@@ -38,7 +38,7 @@ for i in range(N):
         
         pot[i][j] = (1/(4*np.pi*E0)*(q1/R1))+(1/(4*np.pi*E0)*(q2/R2))
 
-#Plot of charges
+#Plot of charges/potentials 
 map=plt.imshow(pot)
 map.set_cmap("viridis")
 plt.title("lovely charges", fontsize=15)
@@ -68,14 +68,13 @@ scale=1e-13
 fig,ax=plt.subplots()
 fig.suptitle('electric field :)', fontsize=15, fontweight='bold')
 
+#For loop
 for i in range(1,N,10):
     for j in range(1,N,10):
 
+        #Electric field plot 
         plt.arrow(x[j],y[i],scale*E_x[i][j],scale*E_y[i][j], lw='3')
 
 ax.set_xlim([0,1]) #Adjusts x-limit between 0 and 1
 ax.set_ylim([0,1]) #Adjusts y-limit between 0 and 1
-fig.show()
-
-
-
+plt.show()
